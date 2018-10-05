@@ -35,7 +35,7 @@ namespace Lab4NewsApp
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
-            const string connection = @"Server=(localdb)\mssqllocaldb;Database=Lab4NewsApp.NewsDb;Trusted_Connection=True;ConnectRetryCount=0";
+            string connection = Configuration.GetConnectionString("NewsDatabase");
             services.AddDbContext<NewsContext>
                 (options => options.UseSqlServer(connection));
         }
