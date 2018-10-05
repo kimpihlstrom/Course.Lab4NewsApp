@@ -1,0 +1,19 @@
+﻿@model IEnumerable<Lab4NewsApp.Domain.NewsItem>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>The latest news</h1>
+</div>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-xs-12">
+            <h1>@item.Heading</h1>
+            <p class="lead">@item.PublishTime.ToLongDateString()</p>
+            <p>@item.Body</p>
+        </div>
+    }
+</div>
